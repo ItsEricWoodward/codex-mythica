@@ -19,7 +19,7 @@ Object.assign(
       title: 'The Codex Mythica',
       description: "The Codex Mythica is a database of all of the cards released for the Mythic Wars card game. Browse through all of the cards in the game, or search to find the card(s) you're looking for.",
       keywords: 'codex, card game, mythic cards, mythic wars cards, mythic wars, clash of the gods, cthulhu rises, nemesis, excalibre, collectible card game, ccg, mythic sets, game, multiplayer, hobby, zeus, thor',
-      base_uri: (process.env.NODE_ENV || '').toLowerCase().indexOf('dev') > -1 ? 'http://localhost:8302' : 'https://codex.mythicwarsgame.com'
+      base_uri: (process.env.NODE_ENV || '').toLowerCase().indexOf('dev') > -1 ? 'http://localhost:8320' : 'https://codex.mythicwarsgame.com'
     },
     author: {
       name: pkg.author.name,
@@ -60,7 +60,7 @@ app.use(function(req, res, next) {
 
 // development error handler
 // will print stacktrace
-if (app.get('env') === 'development') {
+if ((process.env.NODE_ENV || '').toLowerCase().indexOf('dev') > -1 ) {
     app.use(function(err, req, res, next) {
         res.status(err.status || 500);
         res.render('error', {
