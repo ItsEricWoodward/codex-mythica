@@ -1,0 +1,13 @@
+<% if (cards) { %>
+
+  <div class="cards">
+    <%
+      cards.forEach(card => {
+        %>
+        <% include ./preview %>
+        <%
+      })
+    %>
+  </div>
+
+<% } %>

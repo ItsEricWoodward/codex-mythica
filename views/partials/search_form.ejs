@@ -1,0 +1,274 @@
+<%
+  query = query || {};
+%>
+
+  <form class='searchForm' name='searchForm' method='GET' action='/search'>
+    <fieldset class='searchForm-searchSet'>
+      <legend>Search</legend>
+      <ul>
+        <li>
+          <label for='search_for'>Search for</label>
+          <ul>
+            <li>
+              <input type='text' value='<%= query && query.search_for ? query.search_for : "" %>' name='search_for' />
+            </li>
+            <li>
+              <label for='search_in'>in</label>
+            </li>
+            <li>
+              <label>
+                <input type='checkbox' name='search_in' value='name'
+                  <%- query && (!query.search_in || query.search_in.indexOf('name') > -1) ? "checked='checked'" : '' %> />&nbsp;Name
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type='checkbox' name='search_in' value='ability'
+                  <%- query && (!query.search_in || query.search_in.indexOf('ability') > -1) ? "checked='checked'" : '' %> />&nbsp;Ability
+              </label>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </fieldset>
+
+    <fieldset class='searchForm-filterSet'>
+      <legend class='js-ulToggle'>Filters</legend>
+      <p class="searchForm-filterNotes js-searchForm-filterNotes">
+        Click on a filter name to toggle all of the items in that filter.
+      </p>
+      <ul class='js-ulToggle-list'>
+        <li>
+          <label for='pantheons' class='js-checkToggle'>Pantheons</label>
+          <ul>
+            <li>
+              <label>
+                <input type='checkbox' name='pantheons' value='aztec'
+                  <%- query && ((query.pantheons && query.pantheons.indexOf('aztec') > -1) || !query.pantheons || JSON.stringify(query.pantheons) === '[]') ? "checked='checked'" : '' %>
+                  />&nbsp;<img
+                  class="searchForm-pantheon" src="/images/pantheons/aztec.png" alt="Aztec" />
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type='checkbox' name='pantheons' value='egyptian'
+                  <%- query && ((query.pantheons && query.pantheons.indexOf('egyptian') > -1) || !query.pantheons || JSON.stringify(query.pantheons) === '[]') ? "checked='checked'" : '' %>
+                  />&nbsp;<img
+                  class="searchForm-pantheon" src="/images/pantheons/egyptian.png" alt="Egyptian" />
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type='checkbox' name='pantheons' value='greek'
+                  <%- query && ((query.pantheons && query.pantheons.indexOf('greek') > -1) || !query.pantheons || JSON.stringify(query.pantheons) === '[]') ? "checked='checked'" : '' %>
+                  />&nbsp;<img
+                  class="searchForm-pantheon" src="/images/pantheons/greek.png" alt="Greek" />
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type='checkbox' name='pantheons' value='japanese'
+                  <%- query && ((query.pantheons && query.pantheons.indexOf('japanese') > -1) || !query.pantheons || JSON.stringify(query.pantheons) === '[]') ? "checked='checked'" : '' %>
+                  />&nbsp;<img
+                  class="searchForm-pantheon" src="/images/pantheons/japanese.png" alt="Japanese" />
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type='checkbox' name='pantheons' value='norse'
+                  <%- query && ((query.pantheons && query.pantheons.indexOf('norse') > -1) || !query.pantheons || JSON.stringify(query.pantheons) === '[]') ? "checked='checked'" : '' %>
+                  />&nbsp;<img
+                  class="searchForm-pantheon" src="/images/pantheons/norse.png" alt="Norse" />
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type='checkbox' name='pantheons' value='old-ones'
+                  <%- query && ((query.pantheons && query.pantheons.indexOf('old-ones') > -1) || !query.pantheons || JSON.stringify(query.pantheons) === '[]') ? "checked='checked'" : '' %>
+                  />&nbsp;<img
+                  class="searchForm-pantheon" src="/images/pantheons/old-ones.png" alt="Old Ones" />
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type='checkbox' name='pantheons' value='sumerian'
+                  <%- query && ((query.pantheons && query.pantheons.indexOf('sumerian') > -1) || !query.pantheons || JSON.stringify(query.pantheons) === '[]') ? "checked='checked'" : '' %>
+                  />&nbsp;<img
+                  class="searchForm-pantheon" src="/images/pantheons/sumerian.png" alt="Sumerian" />
+              </label>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <label for='elements' class='js-checkToggle'>Elements</label>
+          <ul>
+            <li>
+              <label>
+                <input type='checkbox' name='elements' value='water'
+                  <%- query && ((query.elements && query.elements.indexOf('water') > -1) || !query.elements || JSON.stringify(query.elements) === '[]') ? "checked='checked'" : '' %>
+                  />&nbsp;<img
+                  class="searchForm-element" src="/images/elements/water.png" alt="Water" />
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type='checkbox' name='elements' value='fire'
+                  <%- query && ((query.elements && query.elements.indexOf('fire') > -1) || !query.elements || JSON.stringify(query.elements) === '[]') ? "checked='checked'" : '' %>
+                  />&nbsp;<img
+                  class="searchForm-element" src="/images/elements/fire.png" alt="Fire" />
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type='checkbox' name='elements' value='earth'
+                  <%- query && ((query.elements && query.elements.indexOf('earth') > -1) || !query.elements || JSON.stringify(query.elements) === '[]') ? "checked='checked'" : '' %>
+                  />&nbsp;<img
+                  class="searchForm-element" src="/images/elements/earth.png" alt="Earth" />
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type='checkbox' name='elements' value='air'
+                  <%- query && ((query.elements && query.elements.indexOf('air') > -1) || !query.elements || JSON.stringify(query.elements) === '[]') ? "checked='checked'" : '' %>
+                  />&nbsp;<img
+                  class="searchForm-element" src="/images/elements/air.png" alt="Air" />
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type='checkbox' name='elements' value='law'
+                  <%- query && ((query.elements && query.elements.indexOf('law') > -1) || !query.elements || JSON.stringify(query.elements) === '[]') ? "checked='checked'" : '' %>
+                  />&nbsp;<img
+                  class="searchForm-element" src="/images/elements/law.png" alt="Law" />
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type='checkbox' name='elements' value='chaos'
+                  <%- query && ((query.elements && query.elements.indexOf('chaos') > -1) || !query.elements || JSON.stringify(query.elements) === '[]') ? "checked='checked'" : '' %>
+                  />&nbsp;<img
+                  class="searchForm-element" src="/images/elements/chaos.png" alt="Chaos" />
+              </label>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <label for='races' class='js-checkToggle'>Races</label>
+          <ul>
+            <li>
+              <label>
+                <input type='checkbox' name='races' value='creature'
+                  <%- query && ((query.races && query.races.indexOf('creature') > -1) || !query.races || JSON.stringify(query.races) === '[]') ? "checked='checked'" : '' %>
+                  />&nbsp;Creature
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type='checkbox' name='races' value='deity'
+                  <%- query && ((query.races && query.races.indexOf('deity') > -1) || !query.races || JSON.stringify(query.races) === '[]') ? "checked='checked'" : '' %>
+                  />&nbsp;Deity
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type='checkbox' name='races' value='god'
+                  <%- query && ((query.races && query.races.indexOf('god') > -1) || !query.races || JSON.stringify(query.races) === '[]') ? "checked='checked'" : '' %>
+                  />&nbsp;God
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type='checkbox' name='races' value='goddess'
+                  <%- query && ((query.races && query.races.indexOf('goddess') > -1) || !query.races || JSON.stringify(query.races) === '[]') ? "checked='checked'" : '' %>
+                  />&nbsp;Goddess
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type='checkbox' name='races' value='titan'
+                  <%- query && ((query.races && query.races.indexOf('titan') > -1) || !query.races || JSON.stringify(query.races) === '[]') ? "checked='checked'" : '' %>
+                  />&nbsp;Titan
+              </label>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <label for='types' class='js-checkToggle'>Types</label>
+          <ul>
+            <li>
+              <label>
+                <input type='checkbox' name='types' value='battleground'
+                  <%- query && ((query.types && query.types.indexOf('battleground') > -1) || !query.types || JSON.stringify(query.types) === '[]') ? "checked='checked'" : '' %>
+                  />&nbsp;Battleground
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type='checkbox' name='types' value='entity'
+                  <%- query && ((query.types && query.types.indexOf('entity') > -1) || !query.types || JSON.stringify(query.types) === '[]') ? "checked='checked'" : '' %>
+                  />&nbsp;Entity
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type='checkbox' name='types' value='intervention'
+                  <%- query && ((query.types && query.types.indexOf('intervention') > -1) || !query.types || JSON.stringify(query.types) === '[]') ? "checked='checked'" : '' %>
+                  />&nbsp;Intervention
+              </label>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <label for='releases' class='js-checkToggle'>Releases</label>
+          <ul>
+            <li>
+              <label>
+                <input type='checkbox' name='releases' value='s01c'
+                  <%- query && ((query.releases && query.releases.indexOf('s01c') > -1) || !query.releases || JSON.stringify(query.releases) === '[]') ? "checked='checked'" : '' %>
+                  />&nbsp;<strong>Clash of the Gods</strong>
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type='checkbox' name='releases' value='s01r'
+                  <%- query && ((query.releases && query.releases.indexOf('s01r') > -1) || !query.releases || JSON.stringify(query.releases) === '[]') ? "checked='checked'" : '' %>
+                  />&nbsp;<strong>Cthulhu Rises</strong>
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type='checkbox' name='releases' value='s01n'
+                  <%- query && ((query.releases && query.releases.indexOf('s01n') > -1) || !query.releases || JSON.stringify(query.releases) === '[]') ? "checked='checked'" : '' %>
+                  />&nbsp;<strong>Nemesis</strong>
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type='checkbox' name='releases' value='s01p'
+                  <%- query && ((query.releases && query.releases.indexOf('s01p') > -1) || !query.releases || JSON.stringify(query.releases) === '[]') ? "checked='checked'" : '' %>
+                  />&nbsp;Promotional
+              </label>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+
+    </fieldset>
+    <fieldset class='searchForm-controlSet'>
+      <legend>Controls</legend>
+      <ul>
+        <li>
+          <input type='submit' value='Search' />
+        </li>
+        <li>
+          <input type='reset' value='Clear' />
+        </li>
+      </ul>
+    </fieldset>
+
+    <!--
+
+    </label><br />
+-->
+  </form>

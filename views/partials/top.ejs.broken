@@ -1,0 +1,74 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js ie lt-ie10 lt-ie9 lt-ie8 lt-ie7" lang="en" xmlns:fb="http://ogp.me/ns/fb#"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js ie lt-ie10 lt-ie9 lt-ie8" lang="en" xmlns:fb="http://ogp.me/ns/fb#"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js ie lt-ie10 lt-ie9" lang="en" xmlns:fb="http://ogp.me/ns/fb#"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie lt-ie10" lang="en" xmlns:fb="http://ogp.me/ns/fb#"> <![endif]-->
+<!--[if gt IE 9]> <html class="no-js ie" lang="en" xmlns:fb="http://ogp.me/ns/fb#"> <![endif]-->
+<!--[if !IE]>--> <html class="no-js" lang="en" xmlns:fb="http://ogp.me/ns/fb#"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<base href="<%= site.base_uri %>/" />
+  <title><%= title ? title + ' | ' : ''%><%= site.title %></title>
+
+  <!-- For iPad with high-resolution Retina display running iOS ≥ 7: -->
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/favicons/favicon-152.png">
+  <!-- For iPad with high-resolution Retina display running iOS ≤ 6: -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/favicons/favicon-144.png">
+  <!-- For iPhone with high-resolution Retina display running iOS ≥ 7: -->
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/images/favicons/favicon-120.png">
+  <!-- For iPhone with high-resolution Retina display running iOS ≤ 6: -->
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/favicons/favicon-114.png">
+  <!-- For first- and second-generation iPad: -->
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/favicons/favicon-72.png">
+  <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+  <link rel="apple-touch-icon-precomposed" href="/images/favicons/favicon-57.png">
+  <!-- Additional Sizes -->
+  <link rel="icon" href="/images/favicons/favicon-128.png" sizes="128x128">
+  <link rel="icon" href="/images/favicons/favicon-96.png" sizes="96x96">
+  <link rel="icon" href="/images/favicons/favicon-64.png" sizes="64x64">
+  <link rel="icon" href="/images/favicons/favicon-48.png" sizes="48x48">
+  <link rel="icon" href="/images/favicons/favicon-32.png" sizes="32x32">
+  <link rel="icon" href="/images/favicons/favicon-124.png" sizes="24x24">
+  <link rel="icon" href="/images/favicons/favicon-16.png" sizes="16x16">
+  <link rel="shortcut icon" href="/images/favicons/favicon-16.png" />
+
+  <meta name="description" content="">
+  <meta name="author" content="<%= author.name %>">
+  <meta name="generator" content="Express"/>
+  <meta name="keywords" content="">
+  <meta name="robots" content="">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="" />  <!-- TODO: Fix this -->
+  <meta property="og:site_name" content="<%= site.title %>" />
+  <meta property="og:title" content="<%= (title || site.title) %>" />
+<% if (card && card.image) { %>
+  <meta property="og:image" content="<%= card.image %>"/>
+<% } %>
+<% if (description) { %>
+  <meta property="og:description" content="<%= description %>" />
+<% } %>
+
+  <!-- Twitter Card -->
+<% if (card && card.image) { %>
+  <meta name="twitter:card" content="summary_large_image">
+<% } else { %>
+  <meta name="twitter:card" content="summary" />
+<% } %>
+  <meta name="twitter:url" content="" /> <!-- TODO: add uri -->
+  <meta name="twitter:title" content="(title || site.title) %>" />
+  <meta name="twitter:description" content="">
+  <meta name="twitter:image:src" content="">
+<% if (author && author.twitter) { %>
+  <meta name="twitter:creator" content="<%= author.twitter %>">
+<% } %>
+  <link rel="start" href="<%= site.base_uri %>/"/>
+  <!-- <link rel="contents" href="/sitemap.xml" title="Sitemap"/> -->  <!-- TODO: add uri -->
+  <link rel="canonical" href=""/> <!-- TODO: add uri -->
+
+	<link rel="stylesheet" href="/styles/styles.<%= site.version -%>.min.css" type="text/css" />
+
+</head>

@@ -1,0 +1,66 @@
+<% if (card) { %>
+<div class="preview">
+  <div class="preview-info">
+    <img
+      src="/images/thumb/<%= card.num.toLowerCase() %>_<%= card.name_ang %>.jpg"
+      alt="Card image for <%=card.name%>"
+      class="preview-image" />
+    <div>
+
+    <a href="/cards/<%= card.num.toLowerCase() %>"><%= card.name %>
+      <% if (card.culture !== '') { %>
+        <img class="preview-pantheon" src="/images/pantheons/<%= card.culture.toLowerCase().replace(' ','-') %>.png"
+          alt="<%= card.culture %>" />
+      <% } %>
+        <%= card.num.toUpperCase() %></a><br />
+      <% if (card.race != '') { %>
+        <%= card.race %>
+      <% } %>
+      <% if (card.type != '') { %>
+        <%= card.type %>
+      <% } %>
+      <% if (card.type_idx.indexOf('intervention') > -1) { %>
+        <br />
+      <% } %>
+      <% if (card.element.indexOf(' ') !== -1) { %>
+        <% card.element.split(/\s+/).forEach(function(el) { %>
+            <img class="preview-element" src="/images/elements/<%= el.toLowerCase() %>.png"
+          alt="<%= el %>" />
+          <% }); %>
+        <br />
+      <% } else if (card.element !== '') { %>
+        <img class="preview-element" src="/images/elements/<%= card.element.toLowerCase() %>.png"
+          alt="<%= card.element %>" /><br />
+      <% } %>
+
+      <% if (card.attack != '') { %>
+        <img class="preview-score" src="/images/scores/att-<%= card.attack %>.png" alt="<%= card.attack %>" />
+      <% } %>
+      <% if (card.defense != '') { %>
+        <img class="preview-score" src="/images/scores/def-<%= card.defense %>.png" alt="<%= card.defense %>" />
+      <% } %>
+      <% if (card.power != '') { %>
+        <img class="preview-score" src="/images/scores/pow-<%= card.power %>.png" alt="<%= card.power %>" /><br />
+      <% } %>
+
+
+      <p>
+        <% if (card.ability_name != '') { %>
+          <strong><%- card.ability_name %></strong> &mdash;
+        <% } %>
+        <%-
+          card.ability_text
+            .replace(/EMPOWER/g, '<img class="card-element" src="/images/empower.png" alt="Empower" />')
+            .replace(/{CHAOS}/g, '<img class="card-element" src="/images/elements/chaos.png" alt="Chaos" />')
+            .replace(/{LAW}/g, '<img class="card-element" src="/images/elements/law.png" alt="Law" />')
+            .replace(/{AIR}/g, '<img class="card-element" src="/images/elements/air.png" alt="Air" />')
+            .replace(/{EARTH}/g, '<img class="card-element" src="/images/elements/earth.png" alt="Earth" />')
+            .replace(/{FIRE}/g, '<img class="card-element" src="/images/elements/fire.png" alt="Fire" />')
+            .replace(/{WATER}/g, '<img class="card-element" src="/images/elements/water.png" alt="Water" />')
+            .replace(/{OLD_ONES}/g, '<img class="card-pantheon" src="/images/pantheons/old-ones.png" alt="Water" />')
+        %>
+      </p>
+    </div>
+  </div>
+</div>
+<% } %>

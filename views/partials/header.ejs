@@ -1,0 +1,25 @@
+
+<nav class="js-navMenu navMenu clearfix" id="navMenu">
+  <ul>
+    <li class="navMenu-logo">
+      <a href="https://mythicwarsgame.com/" class="logoBtn navMenu-logoBtn">
+        <img src="/images/mw-logo-wide-300x70.png" class="navMenu-logoImg" />
+      </a>
+    </li>
+    <li class="navMenu-search">
+      <form class="navMenu-search-form" id="searchForm" method="get" action="/search">
+        <fieldset role="search" class="navMenu-search-fieldset">
+          <input id="searchQuery" class="navMenu-search-box" type="search" placeholder="Card Quick Search" value="" name="search_for" title="" maxlength="50">
+          <input class="navMenu-search-btn" type="submit" value="Search">
+          <input type="hidden" name="search_in" value="name" />
+          <input type="hidden" name="search_in" value="ability" />
+        </fieldset>
+      </form>
+    </li>
+    <li class="navMenu-title">
+      <a href="https://mythicwarsgame.com/"><h1>The Codex Mythica</h1></a>
+    </li>
+  </ul>
+</nav>
+
+<h2><%=title ? title : ''%></h2>

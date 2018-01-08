@@ -1,0 +1,119 @@
+<% if (typeof card !== 'undefined') {
+  var release_map = {
+    's01c': '<a href="https://mythicwarsgame.com/clash.html" class="setLink">Clash of the Gods</a>',
+    's01n': '<a href="https://mythicwarsgame.com/clash.html" class="setLink">Nemesis</a>',
+    's01p': '<a href="https://mythicwarsgame.com/clash.html" class="setLink">Promos (Set 01)</a>',
+    's01r': '<a href="https://mythicwarsgame.com/clash.html" class="setLink">Cthulhu Rises</a>',
+
+  };
+%>
+<div class="card clearfix">
+  <div class="card-info">
+    <img
+      src="/images/thumb/<%= card.num.toLowerCase() %>_<%= card.name_ang %>.jpg"
+      alt="Card image for <%=card.name%>"
+      class="card-image" />
+    <dl class="card-data dataBox">
+      <dt>Name</dt>
+      <dd><%= card.name %></dd>
+
+      <dt>Number</dt>
+      <dd><%= card.num.toUpperCase() %></dd>
+
+      <dt>Release</dt>
+      <dd><%- release_map[card.num.toLowerCase().substr(0,3)] %></dd>
+
+      <% if (card.culture !== '') { %>
+        <dt>Pantheon</dt>
+        <dd><img class="card-pantheon" src="/images/pantheons/<%= card.culture.toLowerCase().replace(' ','-') %>.png"
+          alt="<%= card.culture %>" /></dd>
+      <% } %>
+
+
+      <% if (card.race.indexOf(' ') !== -1) { %>
+        <dt>Races</dt>
+        <dd><%= card.race %></dd>
+      <% } else if (card.race !== '') { %>
+        <dt>Race</dt>
+        <dd><%= card.race %></dd>
+      <% } %>
+
+      <% if (card.type.indexOf(' ') !== -1) { %>
+        <dt>Types</dt>
+        <dd><%= card.type %></dd>
+      <% } else if (card.type !== '') { %>
+        <dt>Type</dt>
+        <dd><%= card.type %></dd>
+      <% } %>
+
+      <% if (card.element.indexOf(' ') !== -1) { %>
+        <dt>Elements</dt>
+        <dd>
+        <%
+          card.element.split(/\s+/).forEach(function(el) {
+          %>
+            <img class="card-element" src="/images/elements/<%= el.toLowerCase() %>.png"
+          alt="<%= el %>" />
+          <%
+          });
+        %>
+        </dd>
+      <% } else if (card.element !== '') { %>
+        <dt>Element</dt>
+        <dd><img class="card-element" src="/images/elements/<%= card.element.toLowerCase() %>.png"
+          alt="<%= card.element %>" /></dd>
+      <% } %>
+
+      <% if (card.attack !== '') { %>
+        <dt>Attack</dt>
+        <dd><img class="card-score" src="/images/scores/att-<%= card.attack %>.png" alt="<%= card.attack %> " /></dd>
+      <% } %>
+
+      <% if (card.defense !== '') { %>
+        <dt>Defense</dt>
+        <dd><img class="card-score" src="/images/scores/def-<%= card.defense %>.png" alt="<%= card.defense %>" /></dd>
+      <% } %>
+
+      <% if (card.power !== '') { %>
+        <dt>Power</dt>
+        <dd><img class="card-score" src="/images/scores/pow-<%= card.power %>.png" alt="<%= card.power %>" /></dd>
+      <% } %>
+
+      <dt>Image</dt>
+      <dd><a href='<%= card.source %>'><%= card.credit %></a></dd>
+      <% if (card.ability_name !== '') { %>
+        <dt>Ability</dt>
+        <dd>
+          <dl class='card-ability'>
+            <dt><%- card.ability_name %></dt>
+            <dd><%-
+              card.ability_text
+                .replace(/EMPOWER/g, '<img class="card-element" src="/images/empower.png" alt="Empower" />')
+                .replace(/{CHAOS}/g, '<img class="card-element" src="/images/elements/chaos.png" alt="Chaos" />')
+                .replace(/{LAW}/g, '<img class="card-element" src="/images/elements/law.png" alt="Law" />')
+                .replace(/{AIR}/g, '<img class="card-element" src="/images/elements/air.png" alt="Air" />')
+                .replace(/{EARTH}/g, '<img class="card-element" src="/images/elements/earth.png" alt="Earth" />')
+                .replace(/{FIRE}/g, '<img class="card-element" src="/images/elements/fire.png" alt="Fire" />')
+                .replace(/{WATER}/g, '<img class="card-element" src="/images/elements/water.png" alt="Water" />')
+                .replace(/{OLD_ONES}/g, '<img class="card-pantheon" src="/images/pantheons/old-ones.png" alt="Water" />')
+              %></dd>
+          </dl>
+        </dd>
+      <% } else if (card.ability_text !== ''){ %>
+        <dt>Ability</dt>
+        <dd><%- card.ability_text.replace('EMPOWER', '<img class="card-element" src="/images/empower.png" alt="Empower" />') %></dd>
+      <% } %>
+
+      <% if (card.flavor !== '') { %>
+        <dt>Flavor</dt>
+        <dd><em><%- card.flavor %></em></dd>
+      <% } %>
+      <dt>Copyright</dt>
+      <dd>&copy; <%= card.copyright_year %> <%= card.copyright_owner %></dd>
+    </dl>
+  </div>
+<!--
+<%=JSON.stringify(card)%>
+-->
+</div>
+<% } %>
