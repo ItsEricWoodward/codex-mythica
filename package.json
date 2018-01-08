@@ -15,9 +15,9 @@
     "morgan": "~1.0.0",
     "static-favicon": "~1.0.0"
   },
-  "author" : {
-    "name" : "Eric Woodward",
-    "email" : "eric@itsericwoodward.com",
-    "url" : "https://itsericwoodward.com/"
+  "author": {
+    "name": "Eric Woodward",
+    "email": "eric@itsericwoodward.com",
+    "url": "https://itsericwoodward.com/"
   }
 }
