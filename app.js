@@ -51,9 +51,7 @@ app.use('/search/', search);
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
+  res.status(404).sendFile(path.join(__dirname + '/public/errors', '404.html'));
 });
 
 /// error handlers
@@ -79,6 +77,7 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
+
 
 
 module.exports = app;
