@@ -1,10 +1,11 @@
-/****************************************************************************
- * The Codex Mythica
+/*!
+ * @project The Codex Mythica
  *
- * Copyright 2017-2018 Eric Woodward
- * Source released under CC0 Public Domain License v1.0
+ * @copyright Copyright 2017-2018 Eric Woodward
+ * @license CC0 Public Domain License v1.0
  * http://creativecommons.org/publicdomain/zero/1.0/
- ****************************************************************************/
+ *
+ */
 
  @font-face {
    font-family: 'liberation_serif';
@@ -409,6 +410,10 @@ p {
   max-width: 44em;
   text-align: left;
   width: 100%;
+}
+
+.searchForm legend {
+  color: #FFFDD7;  
 }
 
 .searchForm ul {

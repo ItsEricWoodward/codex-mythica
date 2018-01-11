@@ -5,6 +5,9 @@ var
   logger = require('morgan'),
   cookieParser = require('cookie-parser'),
   bodyParser = require('body-parser'),
+  compression = require('compression'),
+  minify = require('express-minify')
+  uglifyEs = require('uglify-es'),
 
   routes = require('./routes/index'),
   search = require('./routes/search'),
@@ -37,7 +40,6 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
   if (req && req.originalUrl && res) {
@@ -45,9 +47,30 @@ app.use((req, res, next) => {
   }
   next();
 });
+app.use(compression());
+app.use(function(req, res, next)
+{
+  res.minifyOptions = res.minifyOptions || {};
+  res.minifyOptions.js = { output: { comments: 'some' } };
+  res.minifyOptions.css = { output: { comments: 'some' } };
+  if (/libs\.min\.js$/.test(req.url)) {
+    res.minifyOptions.minify = false;
+  }
+  next();
+});
+app.use(minify({
+    cache: 'minify-cache',
+    uglifyJsModule: uglifyEs,
+    sassMatch: false,
+    lessMatch: false,
+    stylusMatch: false,
+    coffeeScriptMatch: false
+  }));
 
 app.use('/', routes);
 app.use('/search/', search);
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {

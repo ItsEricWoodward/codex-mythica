@@ -1,18 +1,25 @@
+/*
 /****************************************************************************
  * The Codex Mythica
  *
- * Copyright 2017 Eric Woodward
- * Source released under CC0 Public Domain License v1.0
+ * @copyright Copyright 2017 Eric Woodward
+ * @license CC0 Public Domain License v1.0
  * http://creativecommons.org/publicdomain/zero/1.0/
  ****************************************************************************/
 ;
 (function(){
   'use strict';
 
-  // Checking if browser "cuts the mustard" - https://gomakethings.com/ditching-jquery/
+  // Check if the browser "cuts the mustard" - https://gomakethings.com/ditching-jquery/
   if ( !(!!document.querySelector && !!window.addEventListener) ) return;
 
-  var
+  // NodeLisr.forEach polyfill for IE11
+  // See: https://github.com/imagitama/nodelist-foreach-polyfill/issues/3
+  if (window.NodeList && !NodeList.prototype.forEach) {
+    NodeList.prototype.forEach = Array.prototype.forEach;
+  }
+
+  let
     protocol = window.location.protocol;
 
   // Indicate JS is loaded
@@ -46,7 +53,7 @@
       if (typeof loadMedia === 'function') {
         loadMedia('.js-lazyLoader', null, true);
       }
-      
+
       document
         .querySelectorAll('.js-checkToggle')
         .forEach(function (el) {
@@ -62,7 +69,7 @@
               });
             });
         });
-      
+
       /*
       document
         .querySelectorAll('.js-ulToggle')
@@ -82,8 +89,8 @@
             });
         });
       */
-      
-      
+
+
       // fix search link on 404
       if (document.documentElement.className.indexOf('is404') > -1) {
         document
@@ -95,7 +102,7 @@
               .replace(/\\.html?$/, "")
               .replace(/\//g, " ");
       }
-      
+
     }, 1);
   });
 }());
