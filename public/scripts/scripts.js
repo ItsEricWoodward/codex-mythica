@@ -2,7 +2,7 @@
 /****************************************************************************
  * The Codex Mythica
  *
- * @copyright Copyright 2017 Eric Woodward
+ * @copyright Copyright 2017-2018 Eric Woodward
  * @license CC0 Public Domain License v1.0
  * http://creativecommons.org/publicdomain/zero/1.0/
  ****************************************************************************/
