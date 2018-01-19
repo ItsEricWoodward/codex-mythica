@@ -251,8 +251,48 @@
             </li>
           </ul>
         </li>
+        <li>
+          <label for='sort_by'>Sort By</label>
+          <ul>
+            <li>
+              <label>
+                <select name='sort_by'>
+                  <option value='name'
+                    <%- query && ((query.sort_by && query.sort_by === 'name') || !query.sort_by) ? "selected='selected'" : '' %>>Name</option>
+                  <option value='num'
+                    <%- query && (query.sort_by && query.sort_by === 'num') ? "selected='selected'" : '' %>>Card Number</option>
+                  <option value='attack'
+                    <%- query && (query.sort_by && query.sort_by === 'attack') ? "selected='selected'" : '' %>>Attack</option>
+                  <option value='defense'
+                    <%- query && (query.sort_by && query.sort_by === 'defense') ? "selected='selected'" : '' %>>Defense</option>
+                  <option value='power'
+                    <%- query && (query.sort_by && query.sort_by === 'power') ? "selected='selected'" : '' %>>Power</option>
+                  <option value='pantheon'
+                    <%- query && (query.sort_by && query.sort_by === 'pantheon') ? "selected='selected'" : '' %>>Pantheon</option>
+                  <option value='race'
+                    <%- query && (query.sort_by && query.sort_by === 'race') ? "selected='selected'" : '' %>>Race</option>
+                  <option value='type'
+                    <%- query && (query.sort_by && query.sort_by === 'type') ? "selected='selected'" : '' %>>Type</option>
+                </select>
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type='radio' name='sort_order' value='asc'
+                  <%- query && ((query.sort_order && query.sort_order === 'asc') || !query.sort_order) ? "checked='checked'" : '' %>
+                  />&nbsp;Ascending
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type='radio' name='sort_order' value='asc'
+                  <%- query && (query.sort_order && query.sort_order === 'desc') ? "checked='checked'" : '' %>
+                  />&nbsp;Descending
+              </label>
+            </li>
+          </ul>
+        </li>
       </ul>
-
 
     </fieldset>
     <fieldset class='searchForm-controlSet'>

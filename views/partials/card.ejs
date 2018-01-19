@@ -23,10 +23,10 @@
       <dt>Release</dt>
       <dd><%- release_map[card.num.toLowerCase().substr(0,4)] %></dd>
 
-      <% if (card.culture !== '') { %>
+      <% if (card.pantheon !== '') { %>
         <dt>Pantheon</dt>
-        <dd><img class="card-pantheon" src="/images/pantheons/<%= card.culture.toLowerCase().replace(' ','-') %>.png"
-          alt="<%= card.culture %>" /></dd>
+        <dd><img class="card-pantheon" src="/images/pantheons/<%= card.pantheon.toLowerCase().replace(' ','-') %>.png"
+          alt="<%= card.pantheon %>" /></dd>
       <% } %>
 
 
@@ -108,6 +108,18 @@
         <dt>Flavor</dt>
         <dd><em><%- card.flavor %></em></dd>
       <% } %>
+      <% if ((card.wp && card.wp !== '') || (card.lc && card.lc !== '')) { %>
+        <dt>Learn More</dt>
+        <dd>
+          <% if (card.wp && card.wp !== '') { %>
+            <a href='<%-card.wp%>' title="Wikipedia link for <%=card.name%>">Wikipedia</a>
+          <% } %>
+          <% if (card.lc && card.lc !== '') { %>
+            <a href='<%-card.lc%>' title="Lovecraft Wiki link for <%=card.name%>">Lovecraft Wiki</a>
+          <% } %>
+        </dd>
+      <% } %>
+
       <dt>Copyright</dt>
       <dd>&copy; <%= card.copyright_year %> <%= card.copyright_owner %></dd>
     </dl>

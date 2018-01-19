@@ -8,9 +8,9 @@
     <div>
 
     <a href="/cards/<%= card.num.toLowerCase() %>"><%= card.name %>
-      <% if (card.culture !== '') { %>
-        <img class="preview-pantheon" src="/images/pantheons/<%= card.culture.toLowerCase().replace(' ','-') %>.png"
-          alt="<%= card.culture %>" />
+      <% if (card.pantheon !== '') { %>
+        <img class="preview-pantheon" src="/images/pantheons/<%= card.pantheon.toLowerCase().replace(' ','-') %>.png"
+          alt="<%= card.pantheon %>" />
       <% } %>
         <%= card.num.toUpperCase() %></a><br />
       <% if (card.race != '') { %>
