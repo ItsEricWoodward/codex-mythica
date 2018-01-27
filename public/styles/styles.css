@@ -127,6 +127,7 @@ h1 {
 }
 
 h2 {
+  line-height: 1.35em;
   padding-top: 1em;
   text-align: center;
 }
@@ -211,42 +212,6 @@ p {
 .card-pantheon {
   max-width: 1.1em;
   vertical-align: middle;
-}
-
-.card-randomLink {
-  border: none;
-  display: inline-block;
-  padding: 0;
-  line-height: 0;
-  margin: 0;
-}
-
-.card-randomLink:hover {
-  border: none;
-}
-
-.card-randomLink > figure {
-  border: none;
-  margin: .5em 2em;
-}
-
-.card-randomLink > figure > figcaption {
-  line-height: 1.35em;
-}
-
-.card-randomLink > .card-image {
-  display: inline;
-  padding: 0;
-  margin: 0;
-}
-
-.card-randomLink-wrapper {
-  border-bottom: 1px solid #91803a;
-}
-
-.card-randomWrapper {
-  margin-top: 0;
-  text-align: center;
 }
 
 .card-score {
@@ -400,6 +365,7 @@ p {
 
 .navMenu-logoBtn {
   border: none;
+  display: block;
   padding: .25em;
 }
 
@@ -482,6 +448,49 @@ p {
   max-width: 1em;
   vertical-align: middle;
 }
+
+.randomLink {
+  border: none;
+  display: inline-block;
+  padding: 0;
+  line-height: 0;
+  margin: 0;
+}
+
+.randomLink:hover {
+  border: none;
+}
+
+.randomLink > figure {
+  border: none;
+  margin: .5em 2em;
+}
+
+.randomLink > figure > figcaption {
+  line-height: 1.35em;
+}
+
+.randomLink > .card-image {
+  display: inline;
+  padding: 0;
+  margin: 0;
+}
+
+.randomLink-title {
+  line-height: 1.35em;
+  margin: .5em auto 0;
+  padding: 0;
+}
+
+.randomLink-wrapper {
+  border-bottom: 1px solid #91803a;
+}
+
+.randomWrapper {
+  margin-top: 0;
+  text-align: center;
+}
+
 
 .searchForm {
   border: 1px solid #666;
