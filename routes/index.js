@@ -27,7 +27,7 @@ router.get('/', function(req, res) {
     cards = require('../lib/cards.json'),
     rand_card_num = Math.floor(Math.random() * Math.floor(cards.length-1));
 
-  res.render('index', { title: 'Welcome', query: (req.query || {}), card: cards[rand_card_num] });
+  res.render('index', { title: 'Welcome', query: (req.query || {}), card: cards[rand_card_num], random_num: rand_card_num });
 });
 
 router.get('/cards/:card_num', (req, res) => {

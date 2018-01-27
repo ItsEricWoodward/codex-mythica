@@ -1,4 +1,4 @@
-<% if (typeof card !== 'undefined') { %>
+<% if (typeof card !== 'undefined' && typeof random_num !== 'undefined') { %>
   <a href="/cards/<%= card.num.toLowerCase() %>"
     class="card-randomLink" title="Tap or click to learn about <%= card.name %>'s card!">
     <figure>
@@ -16,6 +16,6 @@
   </a>
   <p class="card-randomWrapper">
     or
-    <a href="/">&#x21bb; reload the page for a different card.</a>
+    <a href="/?r<%=random_num%>">&#x21bb; reload the page for a different card.</a>
   </p>
 <% } %>

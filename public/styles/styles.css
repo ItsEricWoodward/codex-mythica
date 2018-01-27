@@ -216,7 +216,7 @@ p {
 .card-randomLink {
   border: none;
   display: inline-block;
-  padding: .25em;
+  padding: 0;
   line-height: 0;
   margin: 0;
 }
@@ -227,6 +227,7 @@ p {
 
 .card-randomLink > figure {
   border: none;
+  margin: .5em 2em;
 }
 
 .card-randomLink > figure > figcaption {
