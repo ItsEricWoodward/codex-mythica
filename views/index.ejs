@@ -3,23 +3,21 @@
 
 <body class="container">
 
-<header>
-    <% include ./partials/header %>
-</header>
+<% include ./partials/header %>
 
 <main class='main'>
 
   <div class='intro'>
     <p><strong>The Codex Mythica</strong> is a database of all of the cards released for the <em>Mythic Wars</em> card game. Browse through <a href='/cards/'>all of the cards</a> in the game, or search to find the card(s) you&apos;re looking for.
   </div>
+  
+  <% include ./partials/random_card %>
 
   <% include ./partials/search_form %>
 
 </main>
 
-<footer>
-    <% include ./partials/footer %>
-</footer>
+<% include ./partials/footer %>
 
 <% include ./partials/scripts %>
 

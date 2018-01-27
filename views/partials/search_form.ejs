@@ -10,7 +10,7 @@
           <label for='search_for'>Search for</label>
           <ul>
             <li>
-              <input type='text' value='<%= query && query.search_for ? query.search_for : "" %>' name='search_for' />
+              <input type='search' title='Text to search for' value='<%= query && query.search_for ? query.search_for : "" %>' name='search_for' />
             </li>
             <li>
               <label for='search_in'>in</label>
@@ -35,7 +35,7 @@
     <fieldset class='searchForm-filterSet'>
       <legend class='js-ulToggle'>Filters</legend>
       <p class="searchForm-filterNotes js-searchForm-filterNotes">
-        Click on a filter name to toggle all of the items in that filter.
+        Tap or click on a filter name to toggle all of the items in that filter.
       </p>
       <ul class='js-ulToggle-list'>
         <li>
@@ -55,6 +55,14 @@
                   <%- query && ((query.pantheons && query.pantheons.indexOf('egyptian') > -1) || !query.pantheons || JSON.stringify(query.pantheons) === '[]') ? "checked='checked'" : '' %>
                   />&nbsp;<img
                   class="searchForm-pantheon" src="/images/pantheons/egyptian.png" alt="Egyptian" />
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type='checkbox' name='pantheons' value='eternal'
+                  <%- query && ((query.pantheons && query.pantheons.indexOf('eternal') > -1) || !query.pantheons || JSON.stringify(query.pantheons) === '[]') ? "checked='checked'" : '' %>
+                  />&nbsp;<img
+                  class="searchForm-pantheon" src="/images/pantheons/eternal.png" alt="Eternal" />
               </label>
             </li>
             <li>
@@ -240,6 +248,13 @@
                 <input type='checkbox' name='releases' value='s01n'
                   <%- query && ((query.releases && query.releases.indexOf('s01n') > -1) || !query.releases || JSON.stringify(query.releases) === '[]') ? "checked='checked'" : '' %>
                   />&nbsp;<strong>Nemesis</strong>
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type='checkbox' name='releases' value='s01d'
+                  <%- query && ((query.releases && query.releases.indexOf('s01d') > -1) || !query.releases || JSON.stringify(query.releases) === '[]') ? "checked='checked'" : '' %>
+                  />&nbsp;Demo
               </label>
             </li>
             <li>

@@ -1,18 +1,26 @@
 <% if (typeof card !== 'undefined') {
   var release_map = {
     's01c': '<a href="https://mythicwarsgame.com/clash.html" class="setLink">Clash of the Gods</a>',
-    's01n': '<a href="https://mythicwarsgame.com/clash.html" class="setLink">Nemesis</a>',
-    's01p': '<a href="https://mythicwarsgame.com/clash.html" class="setLink">Promos (Set 01)</a>',
-    's01r': '<a href="https://mythicwarsgame.com/clash.html" class="setLink">Cthulhu Rises</a>',
+    's01d': '<a href="https://mythicwarsgame.com/demo.html" class="setLink">Demo (Set 01)</a>',
+    's01n': '<a href="https://mythicwarsgame.com/nemesis.html" class="setLink">Nemesis</a>',
+    's01p': 'Promos (Set 01)',
+    's01r': '<a href="https://mythicwarsgame.com/cthulhu.html" class="setLink">Cthulhu Rises</a>',
 
   };
 %>
 <div class="card clearfix">
   <div class="card-info">
+    <% if (card.num.toLowerCase().indexOf('d') > -1 ) { %>
+      <a href="https://mythicwarsgame.com/images/cards/<%= card.num.toLowerCase() %>_<%= card.name_ang %>.jpg"
+        class="card-imageLink" title="Tap or click for a full-size image of <%= card.name %>'s card!">
+    <% } %>
     <img
       src="/images/thumb/<%= card.num.toLowerCase() %>_<%= card.name_ang %>.jpg"
       alt="Card image for <%=card.name%>"
       class="card-image" />
+    <% if (card.num.toLowerCase().indexOf('d') > -1 ) { %>
+      </a>
+    <% } %>
     <dl class="card-data dataBox">
       <dt>Name</dt>
       <dd><%= card.name %></dd>
@@ -113,6 +121,9 @@
         <dd>
           <% if (card.wp && card.wp !== '') { %>
             <a href='<%-card.wp%>' title="Wikipedia link for <%=card.name%>">Wikipedia</a>
+          <% } %>
+          <% if (card.wp && card.wp !== '' && card.lc && card.lc !== '') { %>
+            &middot;
           <% } %>
           <% if (card.lc && card.lc !== '') { %>
             <a href='<%-card.lc%>' title="Lovecraft Wiki link for <%=card.name%>">Lovecraft Wiki</a>

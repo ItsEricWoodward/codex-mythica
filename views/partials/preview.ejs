@@ -1,18 +1,22 @@
 <% if (card) { %>
 <div class="preview">
   <div class="preview-info">
-    <img
-      src="/images/thumb/<%= card.num.toLowerCase() %>_<%= card.name_ang %>.jpg"
-      alt="Card image for <%=card.name%>"
-      class="preview-image" />
+    <div>
+      <a href="/cards/<%= card.num.toLowerCase() %>" class="preview-imageLink" title="Tap or click to learn about <%= card.name %>'s card!">
+        <img
+          src="/images/thumb/<%= card.num.toLowerCase() %>_<%= card.name_ang %>.jpg"
+          alt="Card image for <%=card.name%>"
+          class="preview-image" />
+      </a>
+    </div>
     <div>
 
-    <a href="/cards/<%= card.num.toLowerCase() %>"><%= card.name %>
-      <% if (card.pantheon !== '') { %>
-        <img class="preview-pantheon" src="/images/pantheons/<%= card.pantheon.toLowerCase().replace(' ','-') %>.png"
-          alt="<%= card.pantheon %>" />
-      <% } %>
-        <%= card.num.toUpperCase() %></a><br />
+      <a href="/cards/<%= card.num.toLowerCase() %>"><%= card.name %>
+        <% if (card.pantheon !== '') { %>
+          <img class="preview-pantheon" src="/images/pantheons/<%= card.pantheon.toLowerCase().replace(' ','-') %>.png"
+            alt="<%= card.pantheon %>" />
+        <% } %>
+          <%= card.num.toUpperCase() %></a><br />
       <% if (card.race != '') { %>
         <%= card.race %>
       <% } %>

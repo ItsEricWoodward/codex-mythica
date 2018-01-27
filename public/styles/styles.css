@@ -102,7 +102,7 @@ body {
   color: #FFFDD7;
   font-family: 'liberation_serif', serif;
   font-size: 12pt;
-  line-height: 1.2em;
+  line-height: 1.35em;
 }
 
 a {
@@ -110,14 +110,15 @@ a {
   color: #fef78c;
   font-weight: bold;
   text-decoration: none;
-  -webkit-transition: .3s background-color, .3s color;
-  transition: .3s background-color, .3s color;
+  transition: .3s background-color, .3s border, .3s color, .3s text-shadow;
+  -webkit-transition: .3s background-color, .3s border, .3s color, .3s text-shadow;
 }
 
 a:hover {
   border: none;
   background-color: #91803a;
   color: #fffdd7;
+  text-shadow: .05em .05em #51471e;
 }
 
 h1 {
@@ -129,7 +130,12 @@ h2 {
   text-align: center;
 }
 
+h3 {
+  padding: .5em;
+}
+
 p {
+  line-height: 1.25em;
   text-align: justify;
 }
 
@@ -156,16 +162,33 @@ p {
   content: " \2014 ";
 }
 
+.card-data {
+  margin: 1em auto;
+  max-width: 30em;
+  width: 100%;
+}
 
 .card-element {
   max-width: 1.1em;
   vertical-align: middle;
 }
 
-.card-data {
-  margin: 1em auto;
-  max-width: 30em;
-  width: 100%;
+.card-imageLink {
+  border: 1px solid #91803a;
+  display: inline-block;
+  padding: .25em;
+  line-height: 0;
+  margin: 0;
+}
+
+.card-imageLink:hover {
+  border: 1px solid #91803a;
+}
+
+.card-imageLink > .card-image {
+  display: inline;
+  padding: 0;
+  margin: 0;
 }
 
 .card-image {
@@ -178,6 +201,7 @@ p {
 
 .card-info {
   display: block;
+  line-height: 1.35em;
 }
 
 .card-info > img {
@@ -186,6 +210,41 @@ p {
 .card-pantheon {
   max-width: 1.1em;
   vertical-align: middle;
+}
+
+.card-randomLink {
+  border: none;
+  display: inline-block;
+  padding: .25em;
+  line-height: 0;
+  margin: 0;
+}
+
+.card-randomLink:hover {
+  border: none;
+}
+
+.card-randomLink > figure {
+  border: none;
+}
+
+.card-randomLink > figure > figcaption {
+  line-height: 1.35em;
+}
+
+.card-randomLink > .card-image {
+  display: inline;
+  padding: 0;
+  margin: 0;
+}
+
+.card-randomLink-wrapper {
+  border-bottom: 1px solid #91803a;
+}
+
+.card-randomWrapper {
+  margin-top: 0;
+  text-align: center;
 }
 
 .card-score {
@@ -217,7 +276,7 @@ p {
   border-top: 1px solid #FFFDD7;
   clear: both;
   margin: 1em auto;
-  padding: 0 1em;
+  padding: .5em 1em;
   width: 100%
 }
 
@@ -260,6 +319,11 @@ p {
 
 .footer-nav li:first-child:before {
     content:"";
+}
+
+.header {
+  border-bottom: 1px solid #fffdd7;
+  padding-bottom: .5em;
 }
 
 .intro {
@@ -332,16 +396,9 @@ p {
   width: 100%;
 }
 
-.navMenu ul li h1 {
-  font-size: 2em;
-  letter-spacing: .1em;
-  margin: 0;
-  padding: .5em;
-  line-height: 1em;
-}
-
 .navMenu-logoBtn {
   border: none;
+  padding: .25em;
 }
 
 .navMenu-logoImg {
@@ -359,6 +416,22 @@ p {
 
 .navMenu-title {
   clear: left;
+}
+
+.navMenu-title-header {
+  font-size: 2em;
+  letter-spacing: .1em;
+  margin: 0;
+  padding: 0;
+  line-height: 1em;
+}
+
+.navMenu-title-link {
+  border: none;
+  display: inline-block;
+  margin: .6em;
+  padding: .5em;
+  text-shadow: .2em .2em #51471e;
 }
 
 .preview {
@@ -380,17 +453,22 @@ p {
   vertical-align: middle;
 }
 
-.preview-info {
-  align-items: center;
-  display: grid;
-  grid-template-columns: 1fr 3fr;
+.preview-imageLink {
+  border: none;
+  display: inline-block;
 }
 
-.preview-info > img {
+.preview-image {
   border-radius: .7em;
   margin: .5em;
   max-width: 8em;
   vertical-align: middle;
+}
+
+.preview-info {
+  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
 }
 
 .preview-pantheon {
@@ -413,7 +491,7 @@ p {
 }
 
 .searchForm legend {
-  color: #FFFDD7;  
+  color: #FFFDD7;
 }
 
 .searchForm ul {
@@ -486,6 +564,9 @@ p {
   padding: 0;
 }
 
+.searchForm-filterSet > ul > li > label {
+  font-weight: bold;
+}
 .searchForm-filterSet > ul > li > label + * {
   flex: 1 0 8em;
 }
@@ -576,7 +657,16 @@ p {
  ****************************************************************************/
 
 .js .js-checkToggle {
+  color: #fef78c;
   cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
+  transition: .3s background-color, .3s border, .3s color;
+  -webkit-transition: .3s background-color, .3s border, .3s color;
+}
+
+.js .js-checkToggle {
+  font-weight: bold;
 }
 
 .js .js-searchForm-filterNotes {
@@ -662,6 +752,7 @@ p {
   }
   .navMenu-search {
    float: right;
+   padding: .25em;
   }
 }
 

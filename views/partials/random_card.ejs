@@ -1,0 +1,21 @@
+<% if (typeof card !== 'undefined') { %>
+  <a href="/cards/<%= card.num.toLowerCase() %>"
+    class="card-randomLink" title="Tap or click to learn about <%= card.name %>'s card!">
+    <figure>
+      <h3>Random Card: <%=card.name%></h3>
+      <img
+        src="/images/thumb/<%= card.num.toLowerCase() %>_<%= card.name_ang %>.jpg"
+        alt="Card image for <%=card.name%>"
+        class="card-image" />
+      <figcaption>
+        <span class="card-randomLink-wrapper">
+          Tap or click to learn more
+        </span>
+      </figcaption>
+    </figure>
+  </a>
+  <p class="card-randomWrapper">
+    or
+    <a href="/">&#x21bb; reload the page for a different card.</a>
+  </p>
+<% } %>

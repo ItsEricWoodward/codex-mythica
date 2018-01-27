@@ -9,6 +9,7 @@ const
         numeric: true,
         caseFirst: "upper"
       },
+      field = 'name',
       coll = new Intl.Collator({}, coll_opts);
     list.sort((a,b) => {
       if (a[field] && b[field]) {
@@ -22,7 +23,11 @@ let router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: 'Welcome', query: (req.query || {}) });
+  let
+    cards = require('../lib/cards.json'),
+    rand_card_num = Math.floor(Math.random() * Math.floor(cards.length-1));
+
+  res.render('index', { title: 'Welcome', query: (req.query || {}), card: cards[rand_card_num] });
 });
 
 router.get('/cards/:card_num', (req, res) => {
