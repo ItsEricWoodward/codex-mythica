@@ -36,7 +36,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(favicon());
-app.use(logger(':req[x-real-ip] :req[x-forwarded-for] - [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length]'));
+app.use(logger(':req[x-forwarded-for] - [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length]'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
